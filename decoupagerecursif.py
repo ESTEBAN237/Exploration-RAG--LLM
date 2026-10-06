@@ -1,0 +1,18 @@
+texte = """Bitcoin et notions de blockchain : SATUSHI NAKATOMU : Bitcoin core la blockchain -> block : bah bloc tout simplement ou encore livre ou encore registre et chain pour dire s'enchaine les minneurs -> ce sont qui reste tout le temps allumé pour chercher de nouveau bitcoins et envoyer des proofs de work. Lorsqu'il parvient a trouver la series de mots qui apres hachage correspondrait a un resultat de hashchage commencant par un certains nombre de nombre ils seront recompensé et notament de 12.5 bitcoins. Actuellement un bitcoin vaut 54K£ comment les paiements se font avec le bitcoins :  chaque proprietaire de bitcoins lors de la creation de leurs porte feuille de bitcoins choisissent une "Graine" qui correspond a une suite de mots qui vont permettre de generer des  paires de clé privé et public qui serviront a chque trannsaction. clé privée pour signer la transaction et public tout le monde l'a et c'est pour verifier que c'est effectivement toi qui l'as signé. on a plussieurs paires de clé pour eviter d'estimer les différentes transactions faites par chaques pseudonymes correspondant a chaque persoennes """
+
+
+
+
+
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+# Initialisation du splitter
+text_splitter = RecursiveCharacterTextSplitter(
+    chunk_size=300, # Taille de chaque segment
+    chunk_overlap=150 # Chevauchement entre les segments
+    )
+# Découpage du texte
+segments = text_splitter.split_text(texte)
+
+for i, segment in enumerate(segments):
+    print (f"Segment{i+1}:\n{segment}\n")
